@@ -1,0 +1,49 @@
+body {
+    margin: 10;
+    font-family: Arial, sans-serif;
+    width: 100%;
+}
+
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    position: relative; /* Start as relative */
+    width: 100%;
+    transition: top 0.3s; /* Smooth transition */
+}
+
+.navbar.sticky {
+    position: fixed; /* Becomes fixed when scrolling */
+    top: 0; /* Sticks to the top */
+    z-index: 1000; /* Stays above other content */
+    width: 100%;
+}
+
+.nav-button {
+    background: white; /* Button background */
+    color: #fe5304; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+.nav-button:hover {
+    background-color: #777; /* Change color on hover */
+}
+
+.content {
+    padding: 80px 20px; /* Adds padding for content */
+}
+
+.section {
+    height: 50vh; /* Example height for sections */
+    padding: 20px;
+    background-color: rgba(231, 218, 243, 1);
+}
+
+.section:nth-child(even) {
+    background-color: #e7daf3ff; /* Alternate background color */
+}

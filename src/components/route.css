@@ -1,0 +1,25 @@
+.navbar {
+     /* For Safari */
+    position: static;
+    top: 10;
+    background: #fe5304;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex; /* Align buttons horizontally */
+    justify-content: space-around; /* Space out buttons */
+}
+
+.nav-link {
+    background: white; /* Button background */
+    color: #fe5304; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 15px; /* Padding */
+    cursor: pointer; /* Pointer cursor */
+    transition: background 0.3s; /* Smooth transition */
+}
+
+.nav-button:hover {
+    background: rgba(255, 255, 255, 0.7); /* Change background on hover */
+}
