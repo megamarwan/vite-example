@@ -49,8 +49,8 @@ const Navigation = () => {
         <button className="nav-button" onClick={() => scrollTo('section3')}>Section 3</button>
       </nav>
 
-      <div ref={section1Ref} style={{ height: '100vh', backgroundColor: 'rgba(231, 218, 243, 1)', padding: '100px' }}>
-        <h1>Section 1</h1>
+      <div ref={section1Ref} style={{ height: '100vh', backgroundColor: '#f4f4f4', padding: '100px' }}>
+        <h1>Section 1</h1> 
         <p>This is the content of section 1.</p>
           <ElectricBorder
   color="#ee5706ff"
@@ -66,14 +66,14 @@ const Navigation = () => {
   </div>
 </ElectricBorder>
       </div>
-      <div ref={section2Ref} style={{ height: '50vh', backgroundColor: '#e7daf3ff', padding: '20px' }}>
+      <div ref={section2Ref} style={{ height: '50vh', backgroundColor: '#f4f4f4', padding: '20px' }}>
         <h1>Section 2</h1>
         <p>This is the content of section 2.</p>
         
         
       </div>
-      <CurvedLoop marqueeText="Welcome    to     Biznas     " />
-      <div ref={section3Ref} style={{ height: '100vh', backgroundColor: '#e7daf3ff', padding: '20px' }}>
+
+      <div ref={section3Ref} style={{ height: '100vh', backgroundColor: '#f4f4f4', padding: '20px' }}>
         <h1>Section 3</h1>
         <p>This is the content of section 3.</p>
       </div>

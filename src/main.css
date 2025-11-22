@@ -1,0 +1,19 @@
+/* styles.css */
+html, body {
+    height: 100%; /* Ensures body takes 100% of the viewport height */
+    margin: 0;    /* Removes default margin */
+    padding: 0;   /* Removes default padding */
+}
+
+#root {
+    height: 100%; /* Ensures the root div takes 100% of the body height */
+}
+
+.main-component {
+    display: flex;
+    flex-direction: column; /* Or row, depending on your layout */
+    justify-content: space-between; /* Adjusts content spacing */
+    align-items: center; /* Centers items horizontally */
+    height: 100%; /* Fills the entire height */
+    background-color: lightpink; /* Example background */
+}

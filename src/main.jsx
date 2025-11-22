@@ -8,14 +8,14 @@ import Navigation from './components/navbar.jsx'
 import RouteComponent from './components/route.jsx'
 import App from './components/button.jsx'
 import Dashboard from './components/dashboard.jsx'
+import PokemonFetch from './components/pokeapi.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
- <Dashboard/>
+<Dashboard/>
  <RouteComponent/>
  <Navigation/> 
- <App/>
-  <ClickCounter />
+  <PokemonFetch/>
   <Header />
   </StrictMode>,
 )

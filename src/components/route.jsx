@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './route.css'; 
 
 // Sample Components
-const Home = () => {
+const Home = () => (
  <div style={{ flex: 1, textAlign: 'center', border: '1px solid black',height : '150px' }}>
     <h2>Home Page</h2>
   </div> 
-};
+);
 
 const About = () => (
   <div style={{ flex: 1, textAlign: 'center', border: '1px solid black',height : '150px' }}>
@@ -87,7 +87,7 @@ const RouteComponent = () => {
       </nav>
 
       <Routes>
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/search" element={<SearchBar items={items} />} />
