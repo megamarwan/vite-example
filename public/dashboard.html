@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #333;
+            color: #fff;
+            padding: 15px;
+        }
+
+        .sidebar h2 {
+            color: #fe5304;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 0;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: #444;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .header {
+            background: #fe5304;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .welcome {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="#">Home</a>
+        <a href="#">Profile</a>
+        <a href="#">Settings</a>
+        <a href="#">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <h1>Welcome to Your Dashboard</h1>
+        </div>
+        <div class="welcome">
+            Hello, user! Here is your dashboard where you can manage your account and settings.
+        </div>
+        <!-- You can add more content here -->
+    </div>
+
+</body>
+</html>
