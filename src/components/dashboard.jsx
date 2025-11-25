@@ -51,7 +51,7 @@ function Dashboard() {
     <ThemeProvider theme={theme}>
       <div style={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed">
+        <AppBar style={{position : 'absolute' }}>
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleDrawer}>
               <MenuIcon />
@@ -62,7 +62,7 @@ function Dashboard() {
         
         <Drawer open={open} onClose={toggleDrawer}>
           <List>
-            {['Home', 'About'].map((text, index) => (
+            {['Home', 'About','Contact'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <InfoIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
@@ -76,7 +76,7 @@ function Dashboard() {
             <Grid item xs={12} sm={6} md={4}>
               <Card>
                 <CardContent>
-                  <Typography variant="h5">Card 1</Typography>
+                  <Typography variant="h5">innovation</Typography>
                   <Typography variant="body2" color="textSecondary">
                     <CurvedLoop marqueeText="Welcome    to     Biznas     " />
                   </Typography>
@@ -88,7 +88,36 @@ function Dashboard() {
                 </CardActions>
               </Card>
             </Grid>
-            {/* Additional cards can be added here */}
+            {<Grid item xs={12} sm={6} md={4}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h5">pioneers</Typography>
+                  <Typography variant="body2" color="textSecondary">
+                  
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" color="primary">
+                    More details
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid> /* Additional cards can be added here */}
+            { <Grid item xs={12} sm={6} md={4}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h5">Technology</Typography>
+                  <Typography variant="body2" color="textSecondary">
+                    
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" color="primary">
+                    Learn More
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>}
           </Grid>
         </main>
       </div>
