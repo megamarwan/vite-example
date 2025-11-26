@@ -23,6 +23,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import CurvedLoop from './curved';
 
+
+//this code consist of a constant theme and  a dashboard function
+
 //const drawerWidth = 240;
 
 // Create a custom theme
@@ -41,7 +44,7 @@ const theme = createTheme({
 });
 
 function Dashboard() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);//a variable named open and a function to set the value of open
 
   const toggleDrawer = () => {
     setOpen(!open);
@@ -62,7 +65,7 @@ function Dashboard() {
         
         <Drawer open={open} onClose={toggleDrawer}>
           <List>
-            {['Home', 'About','Contact'].map((text, index) => (
+            {['Home', 'About','Contact','products', 'More Info'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <InfoIcon />}</ListItemIcon>
                 <ListItemText primary={text} />

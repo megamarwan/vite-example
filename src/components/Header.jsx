@@ -19,7 +19,7 @@ const Header = () => {
       })
       .then(data => {
         // 3. Update the state with the fetched data
-        setUsers(data); 
+        setUsers(data); //loadthe data into the users array
         setLoading(false); // Done loading
       })
       .catch(error => {
