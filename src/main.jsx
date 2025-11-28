@@ -14,12 +14,23 @@ import PokemonFetch from './components/pokeapi.jsx' // Import the 'PokemonFetch'
 // Function Call: Initializes the React root and renders the application structure.
 createRoot(document.getElementById('root')).render(
 // Function Call: Calls the imported 'createRoot' function, passing the DOM element with id 'root' (the mount point) as the argument, and then calls the '.render()' method on the resulting root object.
- <StrictMode> // JSX Element: Opens the StrictMode wrapper component.
+ <StrictMode> 
 <Dashboard/> 
 <RouteComponent/> 
-<PokemonFetch/> // Renders the 'RouteComponent', which likely contains the routing logic for the application.
-<Header />// Renders the 'Header' component at the top level of the application.
+<Navigation/>
+<PokemonFetch/>
+<Header />
 <App/>
  </StrictMode>, // JSX Element: Closes the StrictMode wrapper component.
 ) // Syntax: Closes the argument list for the .render() function call.
 
+
+/* 1 import all the different components(pieces of code) 
+2 use the three functions creatRoot (from react which take an HTML element as an argument and mount the component on it),
+ getElementById(from vanilla js to get the div with id root in index.html) 
+ and render (from react to render the app inside the div with id root in index.html)
+ rendering is converting code into dom elements that the browser can understand and display on the screen. 3 wrap everything inside StrictMode to help identify potential problems in the application during development. 
+ finally call the render function to display the components on the web page. 
+ The components imported at the top are used to build the user interface of the application. 
+ The main.jsx file serves as the entry point for the React application, orchestrating how components are rendered and displayed in the browser.
+ The React StrictMode is a development tool that helps identify potential problems in a React*/
