@@ -22,12 +22,12 @@ const Contact = () => (
 );
 
 const SearchBar = ({ items }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(''); // state variable to hold the current search term (string)
 
-  const handleChange = (e) => setSearchTerm(e.target.value);
-  const filteredItems = items.filter(item => 
-    item.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const handleChange = (e) => setSearchTerm(e.target.value);// function to update the string variable with input value
+  const filteredItems = items.filter(item =>  
+    item.toLowerCase().includes(searchTerm.toLowerCase()) 
+  ); // function to search the array
 
   return (
     <div style={{ flex: 1, border: '1px solid black' }}>
@@ -48,12 +48,12 @@ const SearchBar = ({ items }) => {
       </ul>
     </div>
   );
-};
+};// the function takes an array input declare a state variable of type string , then a function to put data in the array , then a function to search inside the array and finally render the searched data on the web page.
 
 const LoginSignup = () => {
   const handleClick = () => {
     window.location.href = '/hi.html'; // Redirect to hi.html
-  };
+  }; // declea a function to redirect to another page when clicked
 
   return (
     <div style={{ flex: 1, textAlign: 'center', border: '1px solid black',height : '150px'}}>

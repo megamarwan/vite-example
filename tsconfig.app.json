@@ -1,13 +1,16 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+      "@/*": ["./src/*"]
+    },
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"], // Include all TypeScript files in the src directory
-  "exclude": ["node_modules"] // Exclude node_modules
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
