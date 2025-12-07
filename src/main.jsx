@@ -17,8 +17,9 @@ createRoot(document.getElementById('root')).render(
 // Function Call: Calls the imported 'createRoot' function, passing the DOM element with id 'root' (the mount point) as the argument, and then calls the '.render()' method on the resulting root object.
  <StrictMode> 
 <Dashboard/> 
+<RouteComponent/>
 <Navigation/>
-<RouteComponent/> 
+ 
 <PokemonFetch/>
 <Header />
 

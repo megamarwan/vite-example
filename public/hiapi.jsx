@@ -3,15 +3,14 @@ import './LoginSignup.css'; // Ensure your CSS file exists
 
 const LoginSignup = () => {
     const [action, setAction] = useState("login");
-    const [name, setName] = useState(''); // New state for Name/Username
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [name, setName] = useState(''); // State for Name/Username
+    const [email, setEmail] = useState(''); // State for email
+    const [password, setPassword] = useState(''); // State for password
     const [error, setError] = useState(''); // State to display API errors
 
-    // --- API Endpoints (REPLACE WITH YOUR ACTUAL ENDPOINTS) ---
-    const API_REGISTER_URL = '/api/register';
-    const API_LOGIN_URL = '/api/login';
-    // -----------------------------------------------------------
+    // API Endpoints
+    const API_REGISTER_URL = 'https://ems-api.mataaa.com/gateway/CatalogManagement/api/v1/AddPanale';
+    const API_LOGIN_URL = 'https://ems-api.mataaa.com/gateway/CatalogManagement/api/v1/AddPanale'; // Placeholder for login
 
     const handleSubmit = async () => {
         setError(''); // Clear previous errors
@@ -24,6 +23,9 @@ const LoginSignup = () => {
     };
 
     const handleLogin = async () => {
+        // Normally, you'd have actual API login logic here
+        // For demonstration, we're using the same endpoint as placeholder
+
         if (!email || !password) {
             setError("Please fill in both email and password.");
             return;
@@ -35,21 +37,15 @@ const LoginSignup = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({ images: name, linkupKey: `${email};${password}` }), // Adjust according to actual API requirements
             });
 
             const data = await response.json();
 
             if (response.ok) {
-                // Assuming the API returns a token or user data upon success
                 console.log("Login Successful!", data);
-                // **TODO: Store Auth Token (e.g., in localStorage or context)**
-                // Example: localStorage.setItem('authToken', data.token);
-
-                // Redirect to the dashboard
-                window.location.href = '/dashboard.html'; // Change to your actual dashboard route
+                window.location.href = '/dashboard.html'; // Change the route as necessary
             } else {
-                // Display the error message from the API
                 setError(data.message || 'Login failed. Please check your credentials.');
             }
         } catch (err) {
@@ -63,25 +59,23 @@ const LoginSignup = () => {
             setError("Please fill in all fields to register.");
             return;
         }
-        
+
         try {
             const response = await fetch(API_REGISTER_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ images: name, linkupKey: `${email};${password}` }), // Adjust according to actual API requirements
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 console.log("Registration Successful!", data);
-                // Optionally log the user in immediately or switch to the login view
                 alert('Registration successful! Please log in.');
                 setAction("login"); // Switch to login view after successful registration
             } else {
-                // Display the error message from the API
                 setError(data.message || 'Registration failed. User may already exist.');
             }
         } catch (err) {
@@ -96,12 +90,11 @@ const LoginSignup = () => {
             <div className='text'>{action === "login" ? "Login" : "Sign up"}</div>
             <div className='underline'></div>
 
-            {error && <div className="error-message" style={{color: 'red', textAlign: 'center'}}>{error}</div>}
+            {error && <div className="error-message" style={{ color: 'red', textAlign: 'center' }}>{error}</div>}
 
             <div className='inputs'>
                 {action === "login" ? null : (
                     <div className="input">
-                        {/* Name/Username Input for Registration */}
                         <input 
                             type="text" 
                             placeholder="Name or Username" 
@@ -112,7 +105,6 @@ const LoginSignup = () => {
                 )}
                 
                 <div className="input">
-                    {/* Email Input */}
                     <input 
                         type="email" 
                         placeholder="Email"
@@ -121,7 +113,6 @@ const LoginSignup = () => {
                     />
                 </div>
                 <div className="input">
-                    {/* Password Input */}
                     <input 
                         type="password" 
                         placeholder="Password"
@@ -138,7 +129,6 @@ const LoginSignup = () => {
             )}
             
             <div className="submit-container">
-                {/* Sign Up Button */}
                 <div 
                     className={action === "login" ? "submit" : "submit gray"} 
                     onClick={() => setAction("login")}
@@ -146,7 +136,6 @@ const LoginSignup = () => {
                     login
                 </div>
                 
-                {/* Login Button */}
                 <div 
                     className={action === "login" ? "submit gray" : "submit"} 
                     onClick={() => setAction("Sign up")}
@@ -154,7 +143,6 @@ const LoginSignup = () => {
                     sign up
                 </div>
 
-                {/* Single Submit Button for the Current Action */}
                 <div 
                     className="submit primary" 
                     onClick={handleSubmit} 
@@ -165,6 +153,6 @@ const LoginSignup = () => {
             </div>
         </div>
     );
-}
+};
 
 export default LoginSignup;

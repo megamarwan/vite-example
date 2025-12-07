@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Input</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React;
+
+        const InputField = ({ type, placeholder, value, onChange }) => (
+            <input
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                style={{ border: '1px solid gray', padding: '8px', width: '200px' }} // Basic styling
+            />
+        );
+
+        const App = () => {
+            const [name, setName] = useState('');
+
+            return (
+                <div style={{ padding: '20px' }}>
+                    <InputField
+                        type="text"
+                        placeholder="Enter your name"
+                        value={name}
+                        onChange={(e) => {
+                            console.log(e.target.value); // See the logged value
+                            setName(e.target.value);
+                        }}
+                    />
+                </div>
+            );
+        };
+
+        const container = document.getElementById('root');
+        ReactDOM.render(<App />, container);
+    </script>
+</body>
+</html>
