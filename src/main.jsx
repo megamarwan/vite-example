@@ -10,17 +10,22 @@ import RouteComponent from './components/route.jsx' // Import the 'RouteComponen
 import App from './components/button.jsx' // Import the 'App' component (a function/class component). It is currently unused.
 import Dashboard from './components/dashboard.jsx' // Import the 'Dashboard' component (a function/class component).
 import PokemonFetch from './components/pokeapi.jsx' // Import the 'PokemonFetch' component (a function/class component).
+import NavbarMUI from './components/navbarMUI.jsx'
 
 // Function Call: Initializes the React root and renders the application structure.
 createRoot(document.getElementById('root')).render(
 // Function Call: Calls the imported 'createRoot' function, passing the DOM element with id 'root' (the mount point) as the argument, and then calls the '.render()' method on the resulting root object.
  <StrictMode> 
 <Dashboard/> 
-<RouteComponent/> 
 <Navigation/>
+<RouteComponent/> 
 <PokemonFetch/>
 <Header />
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 67adff985b58dfe386b970056179f01828833e72
  </StrictMode>, // JSX Element: Closes the StrictMode wrapper component.
 ) // Syntax: Closes the argument list for the .render() function call.
 
@@ -34,3 +39,5 @@ createRoot(document.getElementById('root')).render(
  The components imported at the top are used to build the user interface of the application. 
  The main.jsx file serves as the entry point for the React application, orchestrating how components are rendered and displayed in the browser.
  The React StrictMode is a development tool that helps identify potential problems in a React*/
+
+ //testing commit change//

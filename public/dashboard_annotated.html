@@ -1,80 +1,115 @@
+<!-- Annotated copy of dashboard.html — every original line is followed by a comment explaining it. -->
 <!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
 <html lang="en">
+<!-- Root HTML element with language set to English -->
 <head>
+    <!-- Document head starts: metadata, title, and resource links go here -->
     <meta charset="UTF-8">
+    <!-- Sets character encoding to UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Sets viewport for responsive design on mobile devices -->
     <title>User Dashboard</title>
+    <!-- The text to show in browser tab/title bar -->
     
     <!-- Load Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Pulls Tailwind CDN script which generates utility CSS at runtime -->
     
     <!-- Configure Tailwind to use Inter font and orange primary color -->
     <script>
+        /* Inline Tailwind configuration script to extend theme values */
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'primary-orange': '#fe5304',
+                        /* Defines a custom primary orange color used across the page */
                         'bg-dark': '#333333',
+                        /* Custom dark background color for sidebar */
                         'bg-light': '#f8f8f8',
+                        /* Custom light background color for main area */
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                        /* Sets Inter as the default sans-serif font */
                     },
                 }
             }
         }
     </script>
+    <!-- End of Tailwind configuration -->
 </head>
 <body class="flex flex-col md:flex-row min-h-screen bg-bg-light">
+    <!-- Body starts: layout is a column on small screens and row on md+, with min full-screen height and light background -->
 
     <!-- Sidebar Navigation Structure -->
     <nav id="sidebar" class="w-full md:w-56 bg-bg-dark text-white p-4 md:p-6 shadow-xl flex flex-col justify-between">
+        <!-- Navigation element for the sidebar; width adjusts on medium screens, dark bg, white text, padding and vertical layout -->
         <div>
+            <!-- Top section of the sidebar containing title and links -->
             <!-- Dashboard Title/Logo -->
             <h2 class="text-3xl font-extrabold text-primary-orange mb-6 border-b border-gray-700 pb-3">
                 Dash
             </h2>
+            <!-- Heading element showing the dashboard title 'Dash' styled with the primary color -->
 
             <!-- Navigation Links -->
             <div class="space-y-2">
+                <!-- Container spacing each link vertically -->
                 <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 transition duration-200 font-medium flex items-center">
+                    <!-- Link for Home — uses block layout, padding, rounded corners and hover effect -->
                     <!-- Icon placeholder: Home -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <!-- Inline SVG icon representing Home (visual only) -->
                     Home
                 </a>
+                <!-- End of Home link -->
                 <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 transition duration-200 font-medium flex items-center">
+                    <!-- Link for Profile -->
                     <!-- Icon placeholder: User -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <!-- Inline SVG icon representing a user/profile -->
                     Profile
                 </a>
+                <!-- End of Profile link -->
                 <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 transition duration-200 font-medium flex items-center">
+                    <!-- Link for Settings -->
                     <!-- Icon placeholder: Settings -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 0-2 0l-.15-.08a2 2 0 0 0-2.73 2.73l.08.15a2 2 0 0 0 0 2l-.25.43a2 2 0 0 0-.18 1H2a2 2 0 0 0-2 2v.44a2 2 0 0 0 2 2h.18a2 2 0 0 1 1.73 1l.25.43a2 2 0 0 0 0 2l-.08.15a2 2 0 0 0 2.73 2.73l.15-.08a2 2 0 0 0 2 0l.43-.25a2 2 0 0 1 1-1.73V22a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 0 2 0l.15.08a2 2 0 0 0 2.73-2.73l-.08-.15a2 2 0 0 0 0-2l.25-.43a2 2 0 0 0 .18-1h.18a2 2 0 0 0 2-2v-.44a2 2 0 0 0-2-2h-.18a2 2 0 0 1-1.73-1l-.25-.43a2 2 0 0 0 0-2l.08-.15a2 2 0 0 0-2.73-2.73l-.15.08a2 2 0 0 0-2 0l-.43.25a2 2 0 0 1-1 1.73z"/><circle cx="12" cy="12" r="3"/></svg>
+                    <!-- Inline SVG icon representing Settings (visual only) -->
                     Settings
                 </a>
+                <!-- End of Settings link -->
             </div>
+            <!-- End of navigation links container -->
         </div>
 
         <!-- Logout Link (always at the bottom of the sidebar) -->
         <a href="index.html" onclick="handleLogout(event)" class="mt-8 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition duration-200 font-bold flex items-center justify-center shadow-lg">
              <!-- Icon placeholder: Log Out -->
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+            <!-- Inline SVG icon for logout -->
             Logout
         </a>
+        <!-- End of logout link -->
     </nav>
 
     <!-- Main Content Area -->
     <div class="flex-1 p-4 md:p-8 overflow-y-auto">
+        <!-- Main content container that grows to fill remaining space, with padding and scroll on overflow -->
         <!-- Main Content Header -->
         <header class="bg-primary-orange text-white p-6 rounded-xl text-center mb-8 shadow-xl">
+            <!-- Header bar with primary color background and centered text -->
             <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">
                 Welcome to Your Dashboard
             </h1>
         </header>
+        <!-- End of header -->
         
         <!-- Introductory Welcome Message -->
         <div class="bg-white p-6 rounded-lg border-l-4 border-primary-orange shadow-md mb-8">
+            <!-- Welcome card with left colored border to emphasize status -->
             <p class="text-xl font-semibold text-gray-800">
                 Hello, user!
             </p>
@@ -82,6 +117,7 @@
                 Here is your dashboard where you can manage your account and settings. You successfully navigated from the login page!
             </p>
         </div>
+        <!-- End of welcome message -->
         
         <!-- Placeholder Content Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
