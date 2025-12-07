@@ -53,7 +53,7 @@ const LoginSignup = () => {
     // Keyword: Starts the return block, which contains the component's JSX structure.
     return ( 
         // JSX Element: The main container div for the component, styled by the 'container' class.
-        <div className='container'> 
+        <div className='container'>  
             // JSX Element: A simple div for styling purposes (e.g., top header border).
             <div className='header'></div> 
             // JSX Element: Displays the current value of the 'action' state ("login" or "Sign up").

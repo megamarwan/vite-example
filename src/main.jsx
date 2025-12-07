@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
 <Navigation/>
 <PokemonFetch/>
 <Header />
-<App/>
+
  </StrictMode>, // JSX Element: Closes the StrictMode wrapper component.
 ) // Syntax: Closes the argument list for the .render() function call.
 

@@ -1,8 +1,4 @@
-/* * Stylesheet for LoginSignup Component
- * Goal: Create a clean, responsive, and modern authentication form.
- */
-
-/* --- 1. Global Setup (Body/Background) --- */
+/* Stylesheet for LoginSignup Component */
 body {
     margin: 0;
     padding: 0;
@@ -14,21 +10,14 @@ body {
     min-height: 100vh;
 }
 
-/* --- 2. Main Container (The Card) --- */
 .container {
-    width: 90%; /* Responsive width */
-    max-width: 450px; /* Maximum size on large screens */
+    width: 90%; 
+    max-width: 450px; 
     background: #ffffff;
     border-radius: 12px;
     padding: 30px 40px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
-}
-
-/* --- 3. Header & Title Styling --- */
-.header {
-    /* Used as a spacer or for potential top branding/logo */
-    height: 30px;
 }
 
 .text {
@@ -41,15 +30,6 @@ body {
     letter-spacing: 1px;
 }
 
-.underline {
-    width: 60px;
-    height: 4px;
-    background: #fe5304;
-    border-radius: 9px;
-    margin: 0 auto 30px auto;
-}
-
-/* --- 4. Inputs Section --- */
 .inputs {
     display: flex;
     flex-direction: column;
@@ -63,21 +43,12 @@ body {
     background: #f7f7f7;
     border-radius: 8px;
     padding: 10px 15px;
-    transition: border 0.3s;
     border: 1px solid #e0e0e0;
 }
 
 .input:focus-within {
     border-color: #fe5304;
     box-shadow: 0 0 0 3px rgba(4, 191, 254, 0.1);
-}
-
-.input img {
-    /* Since you don't have images yet, this reserves the space */
-    width: 20px;
-    height: 20px;
-    margin-right: 15px;
-    opacity: 0.6;
 }
 
 .input input {
@@ -90,12 +61,6 @@ body {
     font-size: 16px;
 }
 
-.input input::placeholder {
-    color: #a0a0a0;
-}
-
-
-/* --- 5. Forgot Password Link --- */
 .forgot-password {
     padding-left: 20px;
     margin-top: 15px;
@@ -110,7 +75,6 @@ body {
     font-weight: 600;
 }
 
-/* --- 6. Submit Buttons --- */
 .submit-container {
     display: flex;
     gap: 20px;
@@ -133,24 +97,12 @@ body {
     text-transform: uppercase;
 }
 
-.gray {
-    background: #e9ecef;
-    color:#333333
-}
-
-/* Apply a different style for the 'login' button if needed */
-.submit-container .submit:nth-child(2) {
-    background: #e9ecef;
-    color: #fe5304;
-}
-
 .submit:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(204, 65, 1, 0.3);
 }
 
-.submit-container .submit:nth-child(2):hover {
-    background: #d4d8de;
-    box-shadow: none;
+.gray {
+    background: #e9ecef;
+    color: #333333;
 }
-
