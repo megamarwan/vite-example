@@ -5,28 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Signup Form</title>
     
-<<<<<<< HEAD
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="styles.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        // Custom colors used in JSX/HTML
-                        'primary-orange': '#fe5304',
-                        'bg-light': '#f7f7f7',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-=======
     <style>
         /* Stylesheet for LoginSignup Component */
         body {
@@ -38,11 +16,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
->>>>>>> cab911ff778711aee292a0dfdf55a8c2a86c6a32
         }
 
-<<<<<<< HEAD
-=======
         .container {
             width: 90%; 
             max-width: 450px; 
@@ -139,9 +114,30 @@
             background: #e9ecef;
             color: #333333;
         }
+
+        /* New Style for Status Message */
+        .status-message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 6px;
+        }
+
+        .status-message.error {
+            color: #ff0000;
+            background-color: #ffeaea;
+            border: 1px solid #ff0000;
+        }
+
+        .status-message.success {
+            color: #008000;
+            background-color: #eaffea;
+            border: 1px solid #008000;
+        }
+
     </style>
 
->>>>>>> cab911ff778711aee292a0dfdf55a8c2a86c6a32
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -149,44 +145,130 @@
 <body>
     <div id="root"></div>
 
-<<<<<<< HEAD
-    <script type="module" src="hi.jsx"></script>
-=======
     <script type="text/babel">
+        const BASE_URL = 'https://ems-api.mataaa.com/gateway/UserManagement/api/v1'; // Assuming a UserManagement service for Auth
+
         const LoginSignup = () => {
             const [isLogin, setIsLogin] = React.useState(true);
+            const [name, setName] = React.useState(''); // Added for Sign Up
             const [email, setEmail] = React.useState('');
             const [password, setPassword] = React.useState('');
+            const [message, setMessage] = React.useState({ text: '', type: '' }); // State for status messages
+            const [isLoading, setIsLoading] = React.useState(false); // State for loading
 
-            const VALID_EMAIL = "test@example.com";
-            const VALID_PASSWORD = "password123";
+            // Clear message whenever the form state changes
+            React.useEffect(() => {
+                setMessage({ text: '', type: '' });
+            }, [isLogin, email, password, name]);
 
-            const handleLogin = () => {
-                console.log("Attempting Login:");
-                console.log(`Email entered: '${email}'`);
-                console.log(`Password entered: '${password}'`);
 
-                if (email.trim() === VALID_EMAIL && password.trim() === VALID_PASSWORD) {
-                    console.log("SUCCESS: Credentials match. Redirecting.");
-                    window.location.href = 'dashboard.html'; // Redirect to dashboard on successful login
-                } else {
-                    alert("Invalid Email or Password. Try 'test@example.com' and 'password123'.");
+            const handleLogin = async () => {
+                // Client-side validation
+                if (!email || !password) {
+                    setMessage({ text: 'Please enter both email and password.', type: 'error' });
+                    return;
+                }
+
+                setIsLoading(true);
+
+                try {
+                    const response = await fetch(`${BASE_URL}/auth/login`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'accept': '*/*'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                            // Add any other required fields for your Login API
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        // Assuming the API returns a token or user data on success
+                        console.log("Login Successful!", data);
+                        // Store token in local storage and redirect
+                        // localStorage.setItem('userToken', data.token); 
+                        setMessage({ text: 'Login successful! Redirecting...', type: 'success' });
+                        // window.location.href = 'dashboard.html'; // Uncomment to redirect
+                    } else {
+                        // Handle non-200 responses (e.g., 401 Unauthorized)
+                        const errorData = await response.json();
+                        setMessage({ text: errorData.message || 'Login Failed. Check your credentials.', type: 'error' });
+                    }
+                } catch (error) {
+                    console.error('API Error:', error);
+                    setMessage({ text: 'Network error. Could not reach the API.', type: 'error' });
+                } finally {
+                    setIsLoading(false);
                 }
             };
 
-            const handleSignup = () => {
-                alert("Sign Up functionality is not implemented yet");
+            const handleSignup = async () => {
+                // Client-side validation
+                if (!name || !email || !password) {
+                    setMessage({ text: 'Please fill out all fields.', type: 'error' });
+                    return;
+                }
                 
+                setIsLoading(true);
+
+                try {
+                    const response = await fetch(`${BASE_URL}/auth/signup`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'accept': '*/*'
+                        },
+                        body: JSON.stringify({
+                            userName: name, // Adjust key based on your API spec
+                            email: email,
+                            password: password
+                            // Add any other required fields for your Sign Up API
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Assuming the API returns success status
+                        const data = await response.json();
+                        console.log("Sign Up Successful!", data);
+                        setMessage({ 
+                            text: 'Sign Up successful! You can now log in.', 
+                            type: 'success' 
+                        });
+                        // Optionally switch to login view
+                        // setIsLogin(true);
+                    } else {
+                        // Handle API-specific errors (e.g., 409 Conflict - user already exists)
+                        const errorData = await response.json();
+                        setMessage({ text: errorData.message || 'Sign Up Failed. Try again later.', type: 'error' });
+                    }
+                } catch (error) {
+                    console.error('API Error:', error);
+                    setMessage({ text: 'Network error. Could not reach the API.', type: 'error' });
+                } finally {
+                    setIsLoading(false);
+                }
             };
+
+            const handleSubmit = isLogin ? handleLogin : handleSignup;
+
 
             return (
                 <div className='container'>
                     <div className='text'>{isLogin ? 'Login' : 'Sign Up' }</div>
 
                     <div className='inputs'>
-                        {isLogin ? null : (
+                        {!isLogin && (
                             <div className="input">
-                                <input type="text" placeholder="Name or Username" />
+                                <input 
+                                    type="text" 
+                                    placeholder="Name or Username"
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
                             </div>
                         )}
                         <div className="input">
@@ -210,18 +292,31 @@
                     {isLogin ? null : (
                         <div className="forgot-password">Lost password? <span>CLICK HERE!</span></div>
                     )}
+                    
+                    {/* Status Message Display */}
+                    {message.text && (
+                        <div className={`status-message ${message.type}`}>
+                            {message.text}
+                        </div>
+                    )}
 
                     <div className="submit-container">
                         <div 
                             className="submit" 
-                            onClick={isLogin ? handleLogin : () => alert("Sign Up functionality is not implemented yet")}
+                            onClick={isLoading ? null : handleSubmit} // Disable button while loading
+                            style={{ opacity: isLoading ? 0.6 : 1 }}
                         >
-                            {isLogin ? 'Login' : 'Sign Up'}
+                            {isLoading ? 'Processing...' : (isLogin ? 'Login' : 'Sign Up')}
                         </div>
                     </div>
 
-                    <div className="forgot-password" onClick={() => setIsLogin(!isLogin)}>
-                        {isLogin ? 'Switch to Sign Up' : 'Switch to Login'}
+                    <div className="forgot-password" onClick={() => {
+                        setIsLogin(!isLogin);
+                        setName(''); // Clear inputs on switch
+                        setEmail('');
+                        setPassword('');
+                    }}>
+                        {isLogin ? 'Need an account? Switch to Sign Up' : 'Already have an account? Switch to Login'}
                     </div>
                 </div>
             );
@@ -231,6 +326,5 @@
         const root = ReactDOM.createRoot(container);
         root.render(<LoginSignup />);
     </script>
->>>>>>> cab911ff778711aee292a0dfdf55a8c2a86c6a32
 </body>
 </html>

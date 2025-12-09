@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-
+    
+    <!-- Load Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    
+    <!-- Configure Tailwind to use Inter font and orange primary color -->
     <script>
         tailwind.config = {
             theme: {
@@ -26,142 +28,99 @@
 </head>
 <body class="flex flex-col md:flex-row min-h-screen bg-bg-light">
 
+    <!-- Sidebar Navigation Structure -->
     <nav id="sidebar" class="w-full md:w-56 bg-bg-dark text-white p-4 md:p-6 shadow-xl flex flex-col justify-between">
         <div>
+            <!-- Dashboard Title/Logo -->
             <h2 class="text-3xl font-extrabold text-primary-orange mb-6 border-b border-gray-700 pb-3">
                 Dash
             </h2>
 
+            <!-- Navigation Links -->
             <div class="space-y-2">
                 <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 transition duration-200 font-medium flex items-center">
+                    <!-- Icon placeholder: Home -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     Home
                 </a>
                 <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 transition duration-200 font-medium flex items-center">
+                    <!-- Icon placeholder: User -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     Profile
                 </a>
                 <a href="#" class="block p-3 rounded-lg hover:bg-gray-700 transition duration-200 font-medium flex items-center">
+                    <!-- Icon placeholder: Settings -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 0-2 0l-.15-.08a2 2 0 0 0-2.73 2.73l.08.15a2 2 0 0 0 0 2l-.25.43a2 2 0 0 0-.18 1H2a2 2 0 0 0-2 2v.44a2 2 0 0 0 2 2h.18a2 2 0 0 1 1.73 1l.25.43a2 2 0 0 0 0 2l-.08.15a2 2 0 0 0 2.73 2.73l.15-.08a2 2 0 0 0 2 0l.43-.25a2 2 0 0 1 1-1.73V22a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 0 2 0l.15.08a2 2 0 0 0 2.73-2.73l-.08-.15a2 2 0 0 0 0-2l.25-.43a2 2 0 0 0 .18-1h.18a2 2 0 0 0 2-2v-.44a2 2 0 0 0-2-2h-.18a2 2 0 0 1-1.73-1l-.25-.43a2 2 0 0 0 0-2l.08-.15a2 2 0 0 0-2.73-2.73l-.15.08a2 2 0 0 0-2 0l-.43.25a2 2 0 0 1-1 1.73z"/><circle cx="12" cy="12" r="3"/></svg>
                     Settings
                 </a>
             </div>
         </div>
 
+        <!-- Logout Link (always at the bottom of the sidebar) -->
         <a href="index.html" onclick="handleLogout(event)" class="mt-8 p-3 rounded-lg bg-red-600 hover:bg-red-700 transition duration-200 font-bold flex items-center justify-center shadow-lg">
-             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+             <!-- Icon placeholder: Log Out -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
             Logout
         </a>
     </nav>
 
+    <!-- Main Content Area -->
     <div class="flex-1 p-4 md:p-8 overflow-y-auto">
+        <!-- Main Content Header -->
         <header class="bg-primary-orange text-white p-6 rounded-xl text-center mb-8 shadow-xl">
             <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight">
                 Welcome to Your Dashboard
             </h1>
         </header>
-
+        
+        <!-- Introductory Welcome Message -->
         <div class="bg-white p-6 rounded-lg border-l-4 border-primary-orange shadow-md mb-8">
             <p class="text-xl font-semibold text-gray-800">
                 Hello, user!
             </p>
             <p class="text-gray-600 mt-2">
-                Here is your dashboard where you can manage your account and settings.
+                Here is your dashboard where you can manage your account and settings. You successfully navigated from the login page!
             </p>
         </div>
-
+        
+        <!-- Placeholder Content Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div id="metrics-card" class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                <h3 id="metric-title" class="text-xl font-bold text-primary-orange mb-2">Loading...</h3>
-                <p id="metric-value" class="text-4xl font-light text-gray-900">...</p>
+            <!-- Card 1: Metrics -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <h3 class="text-xl font-bold text-primary-orange mb-2">Total Metrics</h3>
+                <p class="text-4xl font-light text-gray-900">1,200</p>
                 <p class="text-sm text-gray-500 mt-2">Data points collected this week.</p>
             </div>
 
+            <!-- Card 2: Tasks -->
             <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                <h3 class="text-xl font-bold text-primary-orange mb-2">phone number</h3>
-                <p class="text-4xl font-light text-gray-900">0922864767</p>
-                <p class="text-sm text-gray-500 mt-2">.</p>
+                <h3 class="text-xl font-bold text-primary-orange mb-2">Pending Tasks</h3>
+                <p class="text-4xl font-light text-gray-900">5</p>
+                <p class="text-sm text-gray-500 mt-2">Don't forget to review the quarterly report.</p>
             </div>
-
+            
+            <!-- Card 3: Notifications -->
             <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                <h3 class="text-xl font-bold text-primary-orange mb-2">position</h3>
+                <h3 class="text-xl font-bold text-primary-orange mb-2">New Alerts</h3>
                 <p class="text-4xl font-light text-gray-900">2</p>
-                <p class="text-sm text-gray-500 mt-2"></p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                <h3 class="text-xl font-bold text-primary-orange mb-2">status</h3>
-                <p class="text-4xl font-light text-gray-900">2</p>
-                <p class="text-sm text-gray-500 mt-2">Always on the look out</p>
+                <p class="text-sm text-gray-500 mt-2">Check security logs immediately.</p>
             </div>
         </div>
 
     </div>
 
+    <!-- JavaScript for Logout Functionality -->
     <script>
-        /**
-         * Fetches data from an API and updates the content of the first dashboard card.
-         */
-        async function updateMetricsCard() {
-            // !!! IMPORTANT: Replace this with your actual API endpoint !!!
-            const apiEndpoint = 'YOUR_API_ENDPOINT_HERE';
-
-            // Fallback data for demonstration if the API fails
-            const fallbackData = {
-                title: "Name of user",
-                value: 
-            };
-
-            try {
-                // Fetch data from the API
-                const response = await fetch(apiEndpoint);
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-
-                // Get references to the HTML elements
-                const titleElement = document.getElementById('metric-title');
-                const valueElement = document.getElementById('metric-value');
-
-                // Update the content
-                if (titleElement) {
-                    titleElement.textContent = data.title || fallbackData.title;
-                }
-                if (valueElement) {
-                    // Format the number (e.g., 4500 -> 4,500)
-                    const formattedValue = data.value ? data.value.toLocaleString() : fallbackData.value.toLocaleString();
-                    valueElement.textContent = formattedValue;
-                }
-
-            } catch (error) {
-                console.error('There was a problem with the fetch operation. Using fallback data.', error);
-                
-                // Use fallback data on error
-                const titleElement = document.getElementById('metric-title');
-                const valueElement = document.getElementById('metric-value');
-                if (titleElement) {
-                    titleElement.textContent = fallbackData.title;
-                }
-                if (valueElement) {
-                    valueElement.textContent = fallbackData.value.toLocaleString();
-                }
-            }
-        }
-
-        /**
-         * Simple logout handler that redirects back to the index (login) page.
-         */
+        // Simple logout handler that redirects back to the index (login) page
         function handleLogout(event) {
-            event.preventDefault();
-            // In a real app, you would clear auth tokens or session data here.
-            console.log("User logged out successfully.");
-            window.location.href = 'index.html';
+            event.preventDefault(); // Prevent default link behavior
+            
+            // In a real app, you would clear auth tokens here.
+            console.log("User logged out successfully."); 
+            
+            // Redirect back to the login page
+            window.location.href = 'index.html'; 
         }
-
-        // Call the API function when the entire page content is loaded
-        document.addEventListener('DOMContentLoaded', updateMetricsCard);
     </script>
 </body>
 </html>

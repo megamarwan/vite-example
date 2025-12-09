@@ -66,19 +66,18 @@ const Navigation = () => {
   // 20. Render the component's JSX
   return (
     <div>
-      // 21. Navbar with buttons to navigate to sections
+      
       <nav className="navbar" ref={navbarRef}>
         <button className="nav-button" onClick={() => scrollTo('section1')}>Section 1</button>
         <button className="nav-button" onClick={() => scrollTo('section2')}>Section 2</button>
         <button className="nav-button" onClick={() => scrollTo('section3')}>Section 3</button>
       </nav>
 
-      // 22. Section 1
+      
       <div ref={section1Ref} style={{ height: '100vh', backgroundColor: '#f4f4f4', padding: '100px' }}>
         <h1>Section 1</h1>
         <p>This is the content of section 1.</p>
         
-        // 23. ElectricBorder component for animated border display
         <ElectricBorder
           color="#ee5706ff" // Color of the border
           speed={1}        // Speed of the animation
@@ -94,13 +93,13 @@ const Navigation = () => {
         </ElectricBorder>
       </div>
 
-      // 24. Section 2
+     
       <div ref={section2Ref} style={{ height: '50vh', backgroundColor: '#f4f4f4', padding: '20px' }}>
         <h1>Section 2</h1>
         <p>This is the content of section 2.</p>
       </div>
 
-      // 25. Section 3
+      
       <div ref={section3Ref} style={{ height: '100vh', backgroundColor: '#f4f4f4', padding: '20px' }}>
         <h1>Section 3</h1>
         <p>This is the content of section 3.</p>
