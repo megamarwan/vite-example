@@ -1,32 +1,8 @@
-<<<<<<< HEAD
-/*
-    In a standard Tailwind project, you would not need this file.
-    These styles were extracted from the <body> tag in the original HTML.
-*/
-
-=======
 /* Stylesheet for LoginSignup Component */
->>>>>>> cab911ff778711aee292a0dfdf55a8c2a86c6a32
 body {
     /* bg-primary-orange min-h-screen flex items-center justify-center p-4 */
     background-color: #fe5304; /* Matches 'primary-orange' in Tailwind config */
     min-height: 100vh;
-<<<<<<< HEAD
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem; /* p-4 */
-    margin: 0;
-    font-family: 'Inter', sans-serif; /* Applied by Tailwind config, but good practice here */
-}
-
-#root {
-    /* Ensures the root container takes up necessary space */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-=======
 }
 
 .container {
@@ -124,5 +100,4 @@ body {
 .gray {
     background: #e9ecef;
     color: #333333;
->>>>>>> cab911ff778711aee292a0dfdf55a8c2a86c6a32
 }
