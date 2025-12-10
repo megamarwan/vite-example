@@ -12,7 +12,6 @@ import Dashboard from './components/dashboard.jsx' // Import the 'Dashboard' com
 import PokemonFetch from './components/pokeapi.jsx' // Import the 'PokemonFetch' component (a function/class component).
 import NavbarMUI from './components/navbarMUI.jsx'
 import Hello from './components/hello.jsx'
-import List from './components/list.jsx'
 
 // Function Call: Initializes the React root and renders the application structure.
 createRoot(document.getElementById('root')).render(
@@ -23,8 +22,7 @@ createRoot(document.getElementById('root')).render(
 <Navigation/>
 <PokemonFetch/>
 <Header />
-<Hello/>
-<List/>
+
  </StrictMode>, // JSX Element: Closes the StrictMode wrapper component.
 ) // Syntax: Closes the argument list for the .render() function call.
 
