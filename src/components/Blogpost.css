@@ -1,0 +1,38 @@
+/* BlogPost.css */
+.blog-post {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post-image {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.post-title {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.post-tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  color: #555;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 8px;
+  font-size: 0.8em;
+}

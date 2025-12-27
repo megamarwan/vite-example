@@ -1,13 +1,10 @@
 // Helper functions for interacting with the AddPanale API
 const BASE = 'https://ems-api.mataaa.com/gateway/CatalogManagement/api/v1/AddPanale';
 
-function handleResponse(res) {
-  if (!res.ok) {
-    return res.json().then((j) => { throw j; }).catch(() => { throw new Error(res.statusText); });
-  }
-  return res.json().catch(() => ({}));
+function handleResponse(res) { 
+  if (!res.ok) { return res.json().then((j)=>{throw j;}).catch(()=>{ throw Error(res.textStatus);})}
+  return res.json().catch(() => { } );
 }
-
 export async function fetchAll(page = 1, postsPerPage = 10) {
   const url = `${BASE}?Page=${page}&PostsPerPage=${postsPerPage}`;
   const res = await fetch(url, { headers: { accept: '*/*' } });

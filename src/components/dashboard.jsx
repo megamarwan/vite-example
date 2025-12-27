@@ -22,7 +22,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import CurvedLoop from './curved';
-import PanalePanel from './PanalePanel';
+
 
 // Create a custom theme
 const theme = createTheme({
@@ -141,7 +141,7 @@ function Dashboard() {
             </Grid>
             {/* Add the Panale CRUD panel below, full-width row */}
             <Grid item xs={12}>
-              <PanalePanel />
+              
             </Grid>
           </Grid>
         </main>
