@@ -18,23 +18,24 @@ import InteractiveBlogPostUsed from './components/InteractiveBlogPostUsed.jsx'
 import { ChildComponent, ParentComponent } from './components/ChildToParent.jsx'
 import ParentComponentxy from './components/ParentToChils.jsx'
 import App from './components/CodeSplitting.jsx'
+import CommentSection from './components/CommentSection.jsx'
 
 // Function Call: Initializes the React root and renders the application structure.
 createRoot(document.getElementById('root')).render(
 // Function Call: Calls the imported 'createRoot' function, passing the DOM element with id 'root' (the mount point) as the argument, and then calls the '.render()' method on the resulting root object.
  <StrictMode> 
-   
 <Dashboard/> 
 <RouteComponent/>
 <App/>
+<List />
 <ParentComponent/>
 <ParentComponentxy/>
 <Navigation/>
 <PokemonFetch/>
 <Header />
-<List />
-<Blogused />
+<CommentSection/>
 <InteractiveBlogPostUsed />
+<Hello name= ' marwan'/>
  </StrictMode>, // JSX Element: Closes the StrictMode wrapper component.
 ) // Syntax: Closes the argument list for the .render() function call.
 

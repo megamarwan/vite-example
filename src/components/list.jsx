@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 
 export default function List() {
 const [items, setItems] = useState([]);
 const [value, setValue] = useState('');
+ useEffect (()=>{console.log('this is rendered');} , [items]);
+
+
 const addItem = () => {
   
   const trimmed = value.trim();
